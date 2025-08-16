@@ -17,4 +17,4 @@ Lightweight Minimalistic Metamethod Hooking Library for Roblox
 - [getnamecallmethod](https://duckys-playground.gitbook.io/wave/functions/miscellaneous#get-namecall-method)
 
 ## Example scripts
-- nothing yet
+- [example one](examples/example1.lua) for [Aimbot-Arena](https://www.roblox.com/games/92205345102577/Aimbot-Arena)
