@@ -10,5 +10,11 @@ Lightweight Minimalistic Metamethod Hooking Library for Roblox
 - Hooks can easily be destroyed, enabled/disabled individually or in bulk
 - Easily check if hooks are active
 
+## Executor Requirement
+- [getrawmetatable](https://duckys-playground.gitbook.io/wave/functions/table#get-raw-metatable)
+- [setreadonly](https://duckys-playground.gitbook.io/wave/functions/table#set-read-only)
+- [newcclosure](https://duckys-playground.gitbook.io/wave/functions/hooking#new-c-closure)
+- [getnamecallmethod](https://duckys-playground.gitbook.io/wave/functions/miscellaneous#get-namecall-method)
+
 ## Example scripts
 - nothing yet
