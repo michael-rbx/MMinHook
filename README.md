@@ -16,5 +16,12 @@ Lightweight Minimalistic Metamethod Hooking Library for Roblox
 - [newcclosure](https://duckys-playground.gitbook.io/wave/functions/hooking#new-c-closure)
 - [getnamecallmethod](https://duckys-playground.gitbook.io/wave/functions/miscellaneous#get-namecall-method)
 
+## How to use
+```lua
+function greet(name)
+    print("Hello, " .. name)
+end
+```
+
 ## Example scripts
 - [example one](examples/example1.lua) for [Aimbot-Arena](https://www.roblox.com/games/92205345102577/Aimbot-Arena)
