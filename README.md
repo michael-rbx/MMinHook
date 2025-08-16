@@ -4,6 +4,6 @@
 Lightweight Minimalistic Metamethod Hooking Library for Roblox
 
 ## Features
-- * [__index](https://www.lua.org/pil/13.4.1.html) Metamethod Hooking
-- __namecall Metamethod Hooking
+- [__index](https://www.lua.org/pil/13.4.1.html) Metamethod Hooking
+- [__namecall](https://chatgpt.com/) Metamethod Hooking
 - 
