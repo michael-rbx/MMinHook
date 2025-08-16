@@ -7,8 +7,8 @@ Lightweight Minimalistic Metamethod Hooking Library for Roblox
 - supports [__index](https://www.lua.org/pil/13.4.1.html) hooking
 - supports [__namecall](https://chat.openai.com/?prompt=what%20does%20__namecall%20mean) hooking
 - Requires minimal code to use
-- Hooks can easily be destroyed, enabled/disabled individually or in bulk
 - Easily check if hooks are active
+- Hooks can easily be destroyed, enabled/disabled individually or in bulk
 
 ## Executor Requirements
 - [getrawmetatable](https://duckys-playground.gitbook.io/wave/functions/table#get-raw-metatable)
