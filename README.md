@@ -16,11 +16,10 @@ Lightweight Minimalistic Metamethod Hooking Library for Roblox
 - [newcclosure](https://duckys-playground.gitbook.io/wave/functions/hooking#new-c-closure)
 - [getnamecallmethod](https://duckys-playground.gitbook.io/wave/functions/miscellaneous#get-namecall-method)
 
-## How to use
+## Usage Example
 ```lua
-function greet(name)
-    print("Hello, " .. name)
-end
+local mmin_hook = loadstring(game:HttpGet("https://raw.githubusercontent.com/michael-rbx/MMinHook/refs/heads/main/MMinHook.lua"))()
+mmin_hook:init()
 ```
 
 ## Example scripts
