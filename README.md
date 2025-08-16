@@ -3,7 +3,7 @@
 
 Lightweight Minimalistic Metamethod Hooking Library for Roblox
 
-Docs included in the [library](MMinHook.lua)
+###### Docs included in the [library](MMinHook.lua)
 
 ## Features
 - supports [__index](https://www.lua.org/pil/13.4.1.html) hooking
