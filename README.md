@@ -9,3 +9,6 @@ Lightweight Minimalistic Metamethod Hooking Library for Roblox
 - Requires minimal code to use
 - Hooks can easily be destroyed, enabled/disabled individually or in bulk
 - Easily check if hooks are active
+
+## Example scripts
+- nothing yet
