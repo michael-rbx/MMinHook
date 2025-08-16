@@ -16,11 +16,11 @@ Lightweight Minimalistic Metamethod Hooking Library for Roblox
 - [newcclosure](https://duckys-playground.gitbook.io/wave/functions/hooking#new-c-closure)
 - [getnamecallmethod](https://duckys-playground.gitbook.io/wave/functions/miscellaneous#get-namecall-method)
 
-## Usage Example
+## Getting Started
 ```lua
 local mmin_hook = loadstring(game:HttpGet("https://raw.githubusercontent.com/michael-rbx/MMinHook/refs/heads/main/MMinHook.lua"))()
 mmin_hook:init()
 ```
 
-## Example scripts
+## Example Scripts
 - [example one](examples/example1.lua) for [Aimbot-Arena](https://www.roblox.com/games/92205345102577/Aimbot-Arena)
