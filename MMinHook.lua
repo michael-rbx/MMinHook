@@ -3,19 +3,7 @@
 
 function error_assert(condition, message)
     if condition then return end
-
-    local caller_info = debug.getinfo(2, "nSl")
-    local name = caller_info.name or "<error>"
-    local source = caller_info.short_src or "<error>"
-    local line = caller_info.currentline or 0
-
-    local error_msg = string.format("[MMinHook] [ERROR] %s, function \"%s\" at line %s in %s",
-        message,
-        name,
-        tostring(line),
-        source
-    )
-    error(error_msg, 2)
+    error(string.format("[MMinHook] [ERROR] %s", message), 2)
 end
 
 --- @module MMinHook
