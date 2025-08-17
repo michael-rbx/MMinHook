@@ -26,3 +26,6 @@ mmin_hook:init()
 
 ## Example Scripts
 - [example one](examples/example1.lua) for [Aimbot-Arena](https://www.roblox.com/games/92205345102577/Aimbot-Arena)
+  ###### * rapid fire
+  ###### * no recoil
+  ###### * no spread
