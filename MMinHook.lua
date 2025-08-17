@@ -153,7 +153,8 @@ function c_index_hook:is_active()
     return self.active
 end
 
----- creates a new __index hook
+---- creates a new __index hook. this does not allow duplicate hooks.
+---- this will hook any instance that shares the same name, even if their path is different.
 --- @param instance string the name of an instance
 --- @param key string the name of the key to be hooked on the instance
 --- @param func fun(this: any, key: string, original: any): any the function/hook to be called when key is accessed
@@ -161,6 +162,18 @@ end
 function library.index:new(instance, key, func)
     error_assert(library.meta_table ~= nil, "meta table is nil, have you called init yet?")
     error_assert(self.original ~= nil, "original __index is nil, have you called init yet?")
+
+    local instance_type = typeof(instance)
+    error_assert(instance_type == "string", string.format("invalid argument for instance. expected string, got %s", instance_type))
+
+    local key_type = typeof(key)
+    error_assert(key_type == "string", string.format("invalid argument for key. expected string, got %s", key_type))
+
+    local func_type = typeof(func)
+    error_assert(func_type == "function", string.format("invalid argument for func. expected function, got %s", func_type))
+
+    local hook = self.hooks[instance .. key]
+    if hook then return hook end
 
     local this = setmetatable({}, c_index_hook)
     this.instance = instance
@@ -228,11 +241,27 @@ function c_name_call_hook:is_active()
     return self.active
 end
 
----- creates a new __namecall hook
+---- creates a new __namecall hook. this does not allow duplicate hooks.
+---- this will hook any instance that shares the same name, even if their path is different.
 --- @param instance string the name of an instance
 ---@param method string the name of the method to be hooked on the instance
 ---@param func fun(this: any, original: any, args: table): any the function/hook to be called when method is called
 function library.name_call:new(instance, method, func)
+    error_assert(library.meta_table ~= nil, "meta table is nil, have you called init yet?")
+    error_assert(self.original ~= nil, "original __index is nil, have you called init yet?")
+
+    local instance_type = typeof(instance)
+    error_assert(instance_type == "string", string.format("invalid argument for instance. expected string, got %s", instance_type))
+
+    local method_type = typeof(method)
+    error_assert(method_type == "string", string.format("invalid argument for method. expected string, got %s", method_type))
+
+    local func_type = typeof(func)
+    error_assert(func_type == "function", string.format("invalid argument for func. expected function, got %s", func_type))
+
+    local hook = self.hooks[instance .. method]
+    if hook then return hook end
+
     local this = setmetatable({}, c_name_call_hook)
     this.instance = instance
     this.method = method
