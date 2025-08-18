@@ -28,6 +28,7 @@ mmin_hook:init()
   - rapid fire
   - no recoil
   - no spread
+  - skin changer
 
 - [example two](examples/example2.lua) for [No-Scope Arcade](https://www.roblox.com/games/14940775218/UPDATE-No-Scope-Arcade-2021)
   - unlock all skins
