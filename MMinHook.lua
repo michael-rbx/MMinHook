@@ -1,5 +1,6 @@
 -- Copyright (c) 2025 michael-rbx
 -- Licensed under the MIT License. See LICENSE file in the project root for details.
+-- checkcaller
 
 function error_assert(condition, message)
     if condition then return end
@@ -39,12 +40,11 @@ function library:init()
 
     self.meta_table.__namecall = newcclosure(function(this, ...)
         local this_string = tostring(this)
-        local method_string = tostring(getnamecallmethod())
+        local method_string = getnamecallmethod()
 
         local hook_data = self.name_call.hooks[this_string .. method_string]
         if hook_data and hook_data.active then
-            local args = {...}
-            return hook_data.func(this, self.name_call.original, args)
+            return hook_data.func(this, self.name_call.original, ...)
         end
 
         return self.name_call.original(this, ...)
@@ -55,7 +55,7 @@ function library:init()
 
         local hook_data = self.index.hooks[tostring(this) .. key]
         if hook_data and hook_data.active then
-            return hook_data.func(this, key, ret_value)
+            return hook_data.func(this, ret_value)
         end
 
         return ret_value
@@ -166,7 +166,7 @@ function library.index:new(instance, key, func)
     local this = setmetatable({}, c_index_hook)
     this.instance = instance
     this.key = key
-    this.func = func
+    this.func = newcclosure(func)
     this.active = false
 
     self.hooks[instance .. key] = this
@@ -232,8 +232,8 @@ end
 ---- creates a new __namecall hook. this does not allow duplicate hooks.
 ---- this will hook any instance that shares the same name, even if their path is different.
 --- @param instance string the name of an instance
----@param method string the name of the method to be hooked on the instance
----@param func fun(this: any, original: any, args: table): any the function/hook to be called when method is called
+--- @param method string the name of the method to be hooked on the instance
+--- @param func fun(this: any, original: any, args: table): any the function/hook to be called when method is called
 function library.name_call:new(instance, method, func)
     error_assert(library.meta_table ~= nil, "meta table is nil, have you called init yet?")
     error_assert(self.original ~= nil, "original __index is nil, have you called init yet?")
@@ -253,7 +253,7 @@ function library.name_call:new(instance, method, func)
     local this = setmetatable({}, c_name_call_hook)
     this.instance = instance
     this.method = method
-    this.func = func
+    this.func = newcclosure(func)
     this.active = false
 
     self.hooks[instance .. method] = this
